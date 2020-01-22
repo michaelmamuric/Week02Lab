@@ -28,10 +28,12 @@ public class AgeCalculatorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String age, formMsg = "";
+        String age, formMsg;
         age = request.getParameter("age");
             
-        if(age == null)
+        if (age == null)
+            formMsg = "";
+        else if(age.equals(""))
             formMsg = "You must give your current age.";
         else {
             try {

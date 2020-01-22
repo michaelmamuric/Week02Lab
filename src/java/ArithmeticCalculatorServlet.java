@@ -46,6 +46,8 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                  }
                  
                  result = res + "";
+                 request.setAttribute("firstNum", first);
+                 request.setAttribute("secondNum", second);
              }
              catch(Exception e) {
                  result = "invalid";
