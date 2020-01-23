@@ -28,20 +28,20 @@ public class AgeCalculatorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String age, formMsg;
+        String age, formMsg = "";
         age = request.getParameter("age");
             
-        if (age == null)
-            formMsg = "";
-        else if(age.equals(""))
-            formMsg = "You must give your current age.";
-        else {
-            try {
-                int userAge = Integer.parseInt(age);
-                formMsg = "Your age next birthday is " + (userAge + 1);
-            }
-            catch (Exception e){
-                formMsg = "You must enter a number.";
+        if (age != null) {
+            if(age.equals(""))
+                formMsg = "You must give your current age.";
+            else {
+                try {
+                    int userAge = Integer.parseInt(age);
+                    formMsg = "Your age next birthday is " + (userAge + 1);
+                }
+                catch (Exception e){
+                    formMsg = "You must enter a number.";
+                }
             }
         }
         
